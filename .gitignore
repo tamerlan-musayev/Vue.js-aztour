@@ -1,2 +1,11 @@
 node_modules/
 /dist/
+now.json
+vue.config.jsonpostcss.config.json
+package.json
+package-lock-json
+jest.config.js
+firebase.json
+cypress.json
+babel.config.json
+postcssrc.js
