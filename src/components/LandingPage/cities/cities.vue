@@ -2,7 +2,7 @@
   <div id="cityPage">
     <div id="cityPageHeader" class="row">
       <div id="header" class="col-8">
-        <header>Please select below where you want to go.</header>
+        <header>Please, select below where you want to go</header>
       </div>
       <div id="input">
         <input v-model="search" type="text" placeholder="Search a city:" />
