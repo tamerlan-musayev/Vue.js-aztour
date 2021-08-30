@@ -33,7 +33,6 @@
             placeholder="Area:"
             class="area"
           />
-          <input v-model="newItem.isLoaded" type="text" placeholder="Defult" />
         </div>
         <div id="addDiv" align="center">
           <button id="addImage" class="btn btn-info" @click="addImage">
