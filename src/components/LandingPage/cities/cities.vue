@@ -8,7 +8,7 @@
         <input v-model="search" type="text" placeholder="Search a city:" />
       </div>
     </div>
-    <div v-if="isLoading" class="loader" ></div>
+    <div v-if="isLoading" class="loader"></div>
     <div
       v-else-if="!isLoading && (!pictures || pictures.length === 0)"
       id="noData"
@@ -24,12 +24,23 @@
         id="individual"
         :key="key"
         class="card border-success mb-3"
+        :class="{ indiv: !picture.isLoaded }"
       >
         <div class="card-header bg-transparent border-success">
           {{ picture.name }}
         </div>
-        <div id="img">
-          <img :src="picture.image"/>
+        <div id="img" :class="{ img2: !picture.isLoaded }">
+          <img
+            class="img"
+            :src="picture.image"
+            v-show="picture.isLoaded"
+            @load="picture.isLoaded = true"
+          />
+          <div
+            v-if="!picture.isLoaded"
+            class="loader"
+            :class="{ loader2: !picture.isLoaded }"
+          ></div>
         </div>
         <div id="cityBody" class="card-footer bg-transparent border-success">
           <button id="more" class="btn" @click="showMore(picture.id)">
@@ -121,7 +132,7 @@ export default {
   div#individual {
     width: 30%;
   }
-  #img img {
+  #img .img {
     width: 100%;
     padding: 2px !important;
   }
@@ -130,17 +141,17 @@ export default {
   div#individual {
     width: 30%;
   }
-  #img img {
+  #img .img {
     width: 100%;
     padding: 2px;
   }
 }
 @media (max-width: 1000px) {
-  #img img {
+  #img .img {
     width: 350px;
     height: 280px;
   }
-  img {
+  .img {
     padding: 0px 1px;
     margin: 0px 3px !important;
   }
@@ -154,7 +165,7 @@ export default {
   div#individual {
     width: 100% !important;
   }
-  #img img {
+  #img .img {
     width: 98%;
     padding: 2px;
   }
@@ -164,7 +175,7 @@ export default {
   div#individual {
     width: 48% !important;
   }
-  #img img {
+  #img .img {
     width: 98%;
     padding: 2px;
   }
@@ -176,7 +187,7 @@ export default {
   div#individual {
     width: 46% !important;
   }
-  #img img {
+  #img .img {
     width: 98%;
     padding: 2px;
   }
@@ -185,7 +196,7 @@ export default {
   div#individual {
     width: 48% !important;
   }
-  #img img {
+  #img .img {
     width: 98%;
     padding: 2px;
   }
@@ -207,7 +218,7 @@ export default {
     float: left !important;
     margin-left: 0px !important;
   }
-  #img img {
+  #img .img {
     width: 98%;
     padding: 2px;
   }
@@ -217,7 +228,7 @@ export default {
     width: 100% !important;
     margin: 10px 30px !important;
   }
-  #img img {
+  #img .img {
     width: 98%;
     padding: 2px;
   }
@@ -238,7 +249,7 @@ export default {
     width: 100% !important;
     margin: 10px 1px !important;
   }
-  #img img {
+  #img .img {
     width: 98%;
     padding: 2px;
   }
@@ -310,6 +321,10 @@ div#individual {
   border-radius: 8px;
   text-align: center !important;
 }
+.indiv {
+  width: 450px !important;
+  height: 100%;
+}
 .card-header {
   font-size: 20px;
 }
@@ -331,7 +346,7 @@ div#individual {
   justify-content: space-around !important;
   margin: 0px 0px !important;
 }
-img {
+.img {
   border-radius: 4px;
   border: 0.5px solid gray;
   width: 450px;
@@ -355,6 +370,19 @@ img {
 }
 #img {
   margin: 16px auto;
+}
+.img2 {
+  height: 360px;
+  position: relative;
+  width: 100%;
+}
+.loader2 {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
 }
 #individual {
   border: 0.5px solid gray;

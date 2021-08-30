@@ -27,7 +27,13 @@
             placeholder="Population:"
             class="main2"
           />
-          <input v-model="newItem.area" type="text" placeholder="Area:" class="area" />
+          <input
+            v-model="newItem.area"
+            type="text"
+            placeholder="Area:"
+            class="area"
+          />
+          <input v-model="newItem.isLoaded" type="text" placeholder="Defult" />
         </div>
         <div id="addDiv" align="center">
           <button id="addImage" class="btn btn-info" @click="addImage">
@@ -129,6 +135,7 @@ export default {
       images: [],
       population: null,
       area: null,
+      isLoaded: false,
     };
   },
   methods: {
