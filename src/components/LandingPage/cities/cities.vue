@@ -29,7 +29,7 @@
           {{ picture.name }}
         </div>
         <div id="img">
-          <img :src="picture.image" @load="load" v-show="picture.image.loaded"/>
+          <img :src="picture.image"/>
         </div>
         <div id="cityBody" class="card-footer bg-transparent border-success">
           <button id="more" class="btn" @click="showMore(picture.id)">
