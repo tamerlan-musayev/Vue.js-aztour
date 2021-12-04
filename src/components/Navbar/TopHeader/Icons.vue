@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="button">
-      <a :href="facebook">
+      <a :href="facebook" target="_blank">
         <div class="icon facebook">
           <i class="fab fa-facebook-f" />
         </div>
@@ -9,7 +9,7 @@
       </a>
     </div>
     <div class="button">
-      <a :href="twitter">
+      <a :href="twitter" target="_blank">
         <div class="icon twitter">
           <i class="fab fa-twitter" />
         </div>
@@ -17,7 +17,7 @@
       </a>
     </div>
     <div class="button">
-      <a :href="instagram">
+      <a :href="instagram" target="_blank">
         <div class="icon instagram">
           <i class="fab fa-instagram" />
         </div>
@@ -25,7 +25,7 @@
       </a>
     </div>
     <div class="button">
-      <a :href="whatsapp">
+      <a :href="whatsapp" target="_blank">
         <div class="icon whatsapp">
           <i class="fab fa-whatsapp" />
         </div>
